@@ -69,6 +69,9 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/http-promise',
+  'app/http-rxjs',
+  'app/dashboard',
   /** @cli-barrel */
 ];
 
