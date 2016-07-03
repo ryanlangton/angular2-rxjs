@@ -16,8 +16,8 @@ describe('App: Angular2Rxjs', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'app works!\'',
+  it('should have as title \'Reactive programming with Angular2 and RxJS\'',
       inject([AppComponent], (app: AppComponent) => {
-    expect(app.title).toEqual('app works!');
+    expect(app.title).toEqual('Reactive programming with Angular2 and RxJS');
   }));
 });
