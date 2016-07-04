@@ -8,7 +8,7 @@
         <a md-line
            href="https://github.com/{{user.login}}" 
            target="_new">{{user.login}}</a>
-        <p md-line>{{ user.followerCount }} followers.</p>
+        <p md-line>{{ user.follower$.count() | async }} followers.</p>
       </md-list-item>
     </md-list>
   </div>

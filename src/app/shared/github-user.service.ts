@@ -14,4 +14,12 @@ export class GithubUserService {
   public getUsersPromise(): Promise<any> {
     return this._http.get('https://api.github.com/users').toPromise();
   }  
+
+  public getFollowersObservable(followersUrl: string): Observable<any> {
+    return this._http.get(followersUrl);
+  }
+
+  public getFollowersPromise(followersUrl: string): Promise<any> {
+    return this._http.get(followersUrl).toPromise();
+  }
 }
