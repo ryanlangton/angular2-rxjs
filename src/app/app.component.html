@@ -1,8 +1,8 @@
 <md-sidenav-layout class="demo-root" fullscreen>
   <md-sidenav #start>
     <md-nav-list>
-      <a md-list-item [routerLink]="['http-promise']">Http Promise</a>
-      <a md-list-item [routerLink]="['http-rxjs']">Http RxJS</a>
+      <a md-list-item [routerLink]="['http-promise']" (click)="start.close()">Http Promise</a>
+      <a md-list-item [routerLink]="['http-rxjs']" (click)="start.close()">Http RxJS</a>
     </md-nav-list>
     <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubUserService } from './../shared/github-user.service'
 
 @Component({
   moduleId: module.id,
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HttpPromiseComponent implements OnInit {
 
-  constructor() {}
+  constructor(private _gihubUserService: GithubUserService) {}
 
   ngOnInit() {
   }

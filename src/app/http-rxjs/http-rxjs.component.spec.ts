@@ -14,7 +14,7 @@ import { HttpRxjsComponent } from './http-rxjs.component';
 
 describe('Component: HttpRxjs', () => {
   it('should create an instance', () => {
-    let component = new HttpRxjsComponent();
+    let component = new HttpRxjsComponent(null);
     expect(component).toBeTruthy();
   });
 });

@@ -14,7 +14,7 @@ import { HttpPromiseComponent } from './http-promise.component';
 
 describe('Component: HttpPromise', () => {
   it('should create an instance', () => {
-    let component = new HttpPromiseComponent();
+    let component = new HttpPromiseComponent(null);
     expect(component).toBeTruthy();
   });
 });

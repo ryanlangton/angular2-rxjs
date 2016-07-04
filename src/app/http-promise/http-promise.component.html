@@ -1,3 +1,10 @@
-<p>
-  http-promise works!
-</p>
+<h2>Http Demo - Promises</h2>
+<md-list>
+  <h3 md-header>GitHub Users</h3>
+  <md-list-item *ngFor="let user of users">
+    <a href="https://github.com/{{user.login}}" target="_new">
+      <img md-list-avatar [src]="user.avatar_url">
+    </a>
+    <h4>{{user.login}}</h4>
+  </md-list-item>
+</md-list>
