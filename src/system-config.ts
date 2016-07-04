@@ -12,7 +12,7 @@ const map: any = {
 
 /** User packages configuration. */
 const packages: any = {
-  '@angular2-material/buttom': {
+  '@angular2-material/button': {
     format: 'cjs',
     defaultExtension: 'js',
     main: 'button.js'
@@ -20,7 +20,7 @@ const packages: any = {
   '@angular2-material/card': {
     format: 'cjs',
     defaultExtension: 'js',
-    main: 'checkbox.js'
+    main: 'card.js'
   },
   '@angular2-material/core': {
     format: 'cjs',
@@ -40,12 +40,22 @@ const packages: any = {
   '@angular2-material/input': {
     format: 'cjs',
     defaultExtension: 'js',
-    main: 'checkbox.js'
+    main: 'input.js'
   },
   '@angular2-material/list': {
     format: 'cjs',
     defaultExtension: 'js',
-    main: 'checkbox.js'
+    main: 'list.js'
+  },
+  '@angular2-material/sidenav': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'sidenav.js'
+  },
+  '@angular2-material/toolbar': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'toolbar.js'
   },
 };
 
