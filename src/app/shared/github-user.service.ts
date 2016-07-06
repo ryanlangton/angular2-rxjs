@@ -23,3 +23,4 @@ export class GithubUserService {
     return this._http.get(url).toPromise();
   }
 }
+

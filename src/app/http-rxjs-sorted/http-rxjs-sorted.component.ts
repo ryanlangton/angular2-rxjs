@@ -11,23 +11,25 @@ import 'rxjs/add/operator/count';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-http-rxjs',
-  templateUrl: 'http-rxjs.component.html',
-  styleUrls: ['http-rxjs.component.css'],
+  selector: 'app-http-rxjs-sorted',
+  templateUrl: 'http-rxjs-sorted.component.html',
+  styleUrls: ['http-rxjs-sorted.component.css'],
   directives: [MD_LIST_DIRECTIVES, MdButton, MdIcon]
 })
-export class HttpRxjsComponent implements OnInit {
+export class HttpRxjsSortedComponent implements OnInit {
   private users$: Observable<any[]>
 
   constructor(private _http: Http) {}
 
   ngOnInit() {
-      this.users$ = this.sortedUsers$;
+      this.users$ = this._http.get('https://api.github.com/users')
+            .map((res) => res.json())
+            .map((res) => res.sort((a, b) => a.login.localeCompare(b.login)));
   }
 
-  private sortedUsers$ = this._http.get('https://api.github.com/users')
+  private filteredUsers$ = this._http.get('https://api.github.com/users')
             .map((res) => res.json())
-            .map((res) => res.sort((a, b) => a.login > b.login));
+            .map((res) => res.filter((x) => x.login.startsWith('b')));
 
   private usersWithRepos$ = this._http.get('https://api.github.com/users')
             .map((res) => res.json())

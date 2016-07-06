@@ -10,11 +10,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { HttpPromiseComponent } from './http-promise.component';
+import { HttpRxjsSortedComponent } from './http-rxjs-sorted.component';
 
-describe('Component: HttpPromise', () => {
+describe('Component: HttpRxjs', () => {
   it('should create an instance', () => {
-    let component = new HttpPromiseComponent(null);
+    let component = new HttpRxjsSortedComponent(null);
     expect(component).toBeTruthy();
   });
 });
