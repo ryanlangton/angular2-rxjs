@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core'
-import { GithubUserService } from './../shared/github-user.service'
+import { Http } from '@angular/http'
 import { MdButton } from '@angular2-material/button/button'
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list'
 import { MdIcon } from '@angular2-material/icon/icon'
 import { Observable } from 'rxjs/Rx'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/toArray';
+import 'rxjs/add/operator/count';
 
 @Component({
   moduleId: module.id,
@@ -15,28 +19,22 @@ import { Observable } from 'rxjs/Rx'
 export class HttpRxjsComponent implements OnInit {
   private users$: Observable<any[]>
 
-  constructor(private _gihubUserService: GithubUserService) {}
+  constructor(private _http: Http) {}
 
   ngOnInit() {
-      this.users$ = this._gihubUserService.getUsersObservable()
-            .map((res) => res.json())
-            .do((users) => console.log(users))
-            // .map((users) => {
-            //   return users.map((user) => {
-            //     user.followers$ = this._githubUserService.getFollowersObservable(user.followers_url)
-            //       .map((res: Result) => res.json());
-            //   })
-            // })
-            // .flatMap((users) => 
-            //   this._githubUserService.getFollowersObservable()
-            //       .map((followers)=> followers.json())
-            //     );
-            // .do((res) => console.log(res));
-            // .map((res) => {
-            //   return res.map((x) => {
-            //     x.followerCount = 20;
-            //     return x;
-            //   })
-            // });
+      this.users$ = this.sortedUsers$;
   }
+
+  private sortedUsers$ = this._http.get('https://api.github.com/users')
+            .map((res) => res.json())
+            .map((res) => res.sort((a, b) => a.login > b.login));
+
+  private usersWithRepos$ = this._http.get('https://api.github.com/users')
+            .map((res) => res.json())
+            .flatMap(users => users)
+            .flatMap(
+              (e: any) => this._http.get(e.repos_url)
+                .map((repos)=> repos.json()), 
+              (e: any, res: any[]) => Object.assign(e, {repos: res}))
+            .toArray();
 }

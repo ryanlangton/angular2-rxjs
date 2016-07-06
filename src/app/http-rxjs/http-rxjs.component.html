@@ -8,7 +8,7 @@
         <a md-line
            href="https://github.com/{{user.login}}" 
            target="_new">{{user.login}}</a>
-        <p md-line>{{ user.follower$.count() | async }} followers.</p>
+        <p md-line *ngIf="user.resos">{{ user.repos.length > 30 ? '30+': user.repos.length }} repos.</p>
       </md-list-item>
     </md-list>
   </div>
