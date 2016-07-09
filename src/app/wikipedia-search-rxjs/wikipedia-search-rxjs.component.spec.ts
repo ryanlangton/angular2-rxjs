@@ -10,11 +10,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { HttpRxjsSortedComponent } from './http-rxjs-sorted.component';
+import { WikipediaSearchRxjsComponent } from './wikipedia-search-rxjs.component';
 
-describe('Component: HttpRxjs', () => {
+describe('Component: WikipediaSearchRxjs', () => {
   it('should create an instance', () => {
-    let component = new HttpRxjsSortedComponent(null);
+    let component = new WikipediaSearchRxjsComponent();
     expect(component).toBeTruthy();
   });
 });

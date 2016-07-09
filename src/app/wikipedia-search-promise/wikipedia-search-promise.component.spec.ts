@@ -10,11 +10,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { HttpPromiseSortedComponent } from './http-promise-sorted.component';
+import { WikipediaSearchPromiseComponent } from './wikipedia-search-promise.component';
 
-describe('Component: HttpPromise', () => {
+describe('Component: WikipediaSearchPromise', () => {
   it('should create an instance', () => {
-    let component = new HttpPromiseSortedComponent(null);
+    let component = new WikipediaSearchPromiseComponent();
     expect(component).toBeTruthy();
   });
 });

@@ -82,6 +82,9 @@ const barrels: string[] = [
   'app/http-promise',
   'app/http-rxjs',
   'app/dashboard',
+  'app/wikipedia-search',
+  'app/wikipedia-search-rxjs',
+  'app/wikipedia-search-promise',
   /** @cli-barrel */
 ];
 

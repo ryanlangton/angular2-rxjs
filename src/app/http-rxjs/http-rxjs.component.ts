@@ -11,12 +11,12 @@ import 'rxjs/add/operator/count';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-http-rxjs-sorted',
-  templateUrl: 'http-rxjs-sorted.component.html',
-  styleUrls: ['http-rxjs-sorted.component.css'],
+  selector: 'app-http-rxjs',
+  templateUrl: 'http-rxjs.component.html',
+  styleUrls: ['http-rxjs.component.css'],
   directives: [MD_LIST_DIRECTIVES, MdButton, MdIcon]
 })
-export class HttpRxjsSortedComponent implements OnInit {
+export class HttpRxjsComponent implements OnInit {
   private users$: Observable<any[]>
 
   constructor(private _http: Http) {}
