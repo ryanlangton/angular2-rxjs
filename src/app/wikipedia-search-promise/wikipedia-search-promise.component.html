@@ -1,3 +1,5 @@
-<p>
-  wikipedia-search-promise works!
-</p>
+<h2>Wikipedia Search - Promise</h2>
+<input #term type="text" (keyup)="search(term.value)">
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>

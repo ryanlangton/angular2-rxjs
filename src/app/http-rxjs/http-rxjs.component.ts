@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core'
-import { Http } from '@angular/http'
-import { MdButton } from '@angular2-material/button/button'
-import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list'
-import { MdIcon } from '@angular2-material/icon/icon'
-import { Observable } from 'rxjs/Rx'
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { MdButton } from '@angular2-material/button/button';
+import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
+import { MdIcon } from '@angular2-material/icon/icon';
+import { GithubUserService } from './../shared';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/toArray';

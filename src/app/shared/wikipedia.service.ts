@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core'
-import { Http } from '@angular/http'
+import { Http, Jsonp, URLSearchParams } from '@angular/http'
 import { Observable } from 'rxjs/Rx'
 import { Promise } from 'es6-promise'
 
 @Injectable()
 export class WikipediaService {
-  constructor(private _http: Http) {}
+  constructor(private _jsonp: Jsonp) {}
   
-  public searchObservable(): Observable<any> {
-    return this._http.get('https://api.github.com/users');
+  public search(term: string): Observable<any> {
+    var params = new URLSearchParams();
+    params.set('action', 'opensearch');
+    params.set('search', term);
+    params.set('format', 'json');
+    return this._jsonp.get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', { search: params })
+                      .map((res) => res.json()[1]);
   }
-
-  public searchPromise(): Promise<any> {
-    return this._http.get('https://api.github.com/users').toPromise();
-  }  
 }
 

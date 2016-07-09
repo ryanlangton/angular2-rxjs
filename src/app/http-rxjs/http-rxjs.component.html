@@ -3,7 +3,7 @@
   <div>
     <md-list dense>
       <h3 md-subheader>GitHub Users</h3>
-      <md-list-item *ngFor="let user of users$ | async">
+      <md-list-item *ngFor="let user of users$">
         <img md-list-avatar [src]="user.avatar_url">
         <a md-line
            href="https://github.com/{{user.login}}" 
