@@ -18,26 +18,23 @@ import 'rxjs/add/operator/count';
   directives: [MD_LIST_DIRECTIVES, MdButton, MdIcon]
 })
 export class HttpRxjsComponent implements OnInit {
-  private users$: Observable<any[]>
+  private users: Array<any[]>
 
-  constructor(private _http: Http) {}
+  constructor(private _githubUserService: GithubUserService) {}
 
   ngOnInit() {
-      this.users$ = this._http.get('https://api.github.com/users')
-            .map((res) => res.json())
-            .map((res) => res.sort((a, b) => a.login.localeCompare(b.login)));
+      this._githubUserService.getUsers()
+            .map((res) => res.sort((a, b) => a.login.localeCompare(b.login)))
+            .subscribe((users) => this.users = users);
   }
 
-  private filteredUsers$ = this._http.get('https://api.github.com/users')
-            .map((res) => res.json())
+  private filteredUsers$ = this._githubUserService.getUsers()
             .map((res) => res.filter((x) => x.login.startsWith('b')));
 
-  private usersWithRepos$ = this._http.get('https://api.github.com/users')
-            .map((res) => res.json())
+  private usersWithRepos$ = this._githubUserService.getUsers()
             .flatMap(users => users)
             .flatMap(
-              (e: any) => this._http.get(e.repos_url)
-                .map((repos)=> repos.json()), 
+              (e: any) => this._githubUserService.getByUrl(e.repos_url),
               (e: any, res: any[]) => Object.assign(e, {repos: res}))
             .toArray();
 }
