@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { MdButton } from '@angular2-material/button/button';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
 import { MdIcon } from '@angular2-material/icon/icon';
-import { GithubUserService } from './../shared';
+import { GithubUserService, User } from './../shared';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
@@ -18,15 +18,15 @@ import 'rxjs/add/operator/count';
   directives: [MD_LIST_DIRECTIVES, MdButton, MdIcon]
 })
 export class HttpRxjsComponent implements OnInit {
-  private users: Array<any[]>
+  private users: Array<User>
 
   constructor(private _githubUserService: GithubUserService) {}
 
   ngOnInit() {
-      // this._githubUserService.getUsers()
-      //       .map((res) => res.sort((a, b) => a.login.localeCompare(b.login)))
-      //       .subscribe((users) => this.users = users);
-      this.usersWithRepos$.subscribe(x => this.users = x);
+      this._githubUserService.getUsers()
+            .map((res) => res.sort((a, b) => a.Login.localeCompare(b.Login)))
+            .subscribe((users) => this.users = users);
+      // this.usersWithRepos$.subscribe(x => this.users = x);
   }
 
   private filteredUsers$ = this._githubUserService.getUsers()
