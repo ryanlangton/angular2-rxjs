@@ -86,6 +86,7 @@ const barrels: string[] = [
   'app/wikipedia-search',
   'app/wikipedia-search-rxjs',
   'app/wikipedia-search-promise',
+  'app/event-buckets-rxjs',
   /** @cli-barrel */
 ];
 

@@ -1,0 +1,10 @@
+<h2>Event Buckets - RxJS</h2>
+<input type="text" [ngFormControl]="term">
+<button (click)="bucketA$.next($event)">Bucket A</button>
+<button (click)="bucketB$.next($event)">Bucket B</button>
+<ul>
+  <li *ngFor="let item in bucketA$">{{ item }}</li>
+</ul>
+<ul>
+  <li *ngFor="let item in bucketB$">{{ item }}</li>
+</ul>
