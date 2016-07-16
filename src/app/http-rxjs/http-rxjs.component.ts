@@ -24,23 +24,8 @@ export class HttpRxjsComponent implements OnInit {
 
   ngOnInit() {
       this._githubUserService.getUsers()
-            .map((res) => res.sort((a, b) => a.Login.localeCompare(b.Login)))
+            .toArray()
+            .do(x => console.log(x))
             .subscribe((users) => this.users = users);
-      // this.usersWithRepos$.subscribe(x => this.users = x);
   }
-
-  private filteredUsers$ = this._githubUserService.getUsers()
-            .map((res) => res.filter((x) => x.login.startsWith('b')));
-
-  private usersWithRepos$ = this._githubUserService.getUsers()  // |[1,2,3,4,5]|
-            .do(x => console.log(x))
-            .flatMap(users => users)                            // |12345|
-            .do(x => console.log("Flat map users=>users"))
-            .do(x => console.log(x))
-            .flatMap(                                           // |abcde|
-              (e: any) => this._githubUserService.getByUrl(e.repos_url),  
-              (e: any, res: any[]) => Object.assign(e, {repos: res}))
-            .do(x => console.log("Flat map get repos: "))
-            .do(x => console.log(x))
-            .toArray();                                                   // |[abcde]|
 }
