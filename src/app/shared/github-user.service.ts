@@ -11,8 +11,8 @@ export class GithubUserService {
   public getUsers(): Observable<User> {
     return this._http.get(this._githubUsersUrl) // |X|  -- string of users
                     .map((res) => res.json())   // |[1,2,3,4,5]|  -- map to object array
-                    .flatMap((user) => user)    // |12345|        -- change array to stream
-                    .map((user: any) => {       // |u1u2u3u4u5|   -- map to strongly typed User
+                    .flatMap((user) => user)    // |-1-2-3-4-5|        -- change array to stream
+                    .map((user: any) => {       // |-u1-u2-u3-u4-u5|   -- map to strongly typed User
                       return {
                         Login: user.login,
                         ReposUrl: user.repos_url,
@@ -23,19 +23,19 @@ export class GithubUserService {
 
   public getUsersWithRepos(minimumRepos: number): Observable<User> {
     return this._http.get(this._githubUsersUrl)     // |X|  -- string of users
-            .map((res) => res.json())               // |[1,2,3,4,5]|  -- map to object array
-            .flatMap((user) => user)                // |12345|        -- change array to stream
-            .map((user: any) => {                   // |u1u2u3u4u5|   -- map to strongly typed User
-              return {
-                Login: user.login,
-                ReposUrl: user.repos_url,
-                AvatarUrl: user.avatar_url,
-                Repos: []
-            }})
-            .flatMap(                              // |abcde|       -- make inner html call for repos
-              (e: any) => this._http.get(e.repos_url).map((res) => res.json()),  
-              (e: any, res: any[]) => Object.assign(e, {Repos: res}))
-            .filter((user: User) => user.Repos.length >= minimumRepos);
+                    .map((res) => res.json())               // |[1,2,3,4,5]|  -- map to object array
+                    .flatMap((user) => user)                // |-1-2-3-4-5|        -- change array to stream
+                    .map((user: any) => {                   // |-u1-u2-u3-u4-u5|   -- map to strongly typed User
+                      return {
+                        Login: user.login,
+                        ReposUrl: user.repos_url,
+                        AvatarUrl: user.avatar_url,
+                        Repos: []
+                    }})
+                    .flatMap(                              // |-a-b-c-d-e|       -- make inner html call for repos
+                      (e: User) => this._http.get(e.ReposUrl).map((res) => res.json()),  
+                      (e: User, res: any[]) => Object.assign(e, {Repos: res}))
+                    .filter((user: User) => user.Repos.length >= minimumRepos);
   }
 }
 
