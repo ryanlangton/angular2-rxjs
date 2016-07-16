@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core'
-import { Http, Jsonp, URLSearchParams } from '@angular/http'
-import { Observable } from 'rxjs/Rx'
-import { Promise } from 'es6-promise'
+import { Injectable } from '@angular/core';
+import { Http, Jsonp, URLSearchParams } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class WikipediaService {
   constructor(private _jsonp: Jsonp) {}
   
-  public search(term: string): Observable<any> {
+  public search(term: string): Observable<string[]> {
     var params = new URLSearchParams();
     params.set('action', 'opensearch');
     params.set('search', term);

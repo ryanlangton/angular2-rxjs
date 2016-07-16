@@ -79,14 +79,13 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
-  'app/shared',
-  'app/http-promise',
-  'app/http-rxjs',
+  'app/services',
   'app/dashboard',
-  'app/wikipedia-search',
-  'app/wikipedia-search-rxjs',
-  'app/wikipedia-search-promise',
-  'app/event-buckets-rxjs',
+  'app/http-start',
+  'app/http-finish',
+  'app/wikipedia-search-start',
+  'app/wikipedia-search-finish',
+  'app/event-buckets',
   /** @cli-barrel */
 ];
 
