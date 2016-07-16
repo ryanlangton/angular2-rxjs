@@ -85,7 +85,7 @@ const barrels: string[] = [
   'app/http-finish',
   'app/wikipedia-search-start',
   'app/wikipedia-search-finish',
-  'app/event-buckets',
+  'app/todos',
   /** @cli-barrel */
 ];
 

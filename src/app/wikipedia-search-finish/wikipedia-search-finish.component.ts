@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Jsonp, URLSearchParams } from '@angular/http';
 import { FormControl } from '@angular/forms';
 import { WikipediaService } from './../services';
 import { Observable } from 'rxjs/Rx';
