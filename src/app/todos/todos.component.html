@@ -1,6 +1,6 @@
-<h2>Todos</h2>
-<input type="text" [ngFormControl]="todo">
-<button (click)="addTodo(todo.value)">Add Todo</button>
-<ul>
-  <li *ngFor="let item of todos$ | async">{{ item }}</li>
-</ul>
+<app-todo-list [todos]="todos$ | async"
+               (onAddTodo)="addTodo($event)"
+               (onDeleteTodo)="deleteTodo($event)"></app-todo-list>
+<app-todo-list [todos]="todos$ | async"
+               (onAddTodo)="addTodo($event)"
+               (onDeleteTodo)="deleteTodo($event)"></app-todo-list>
