@@ -19,4 +19,13 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.todo = new FormControl('', Validators.required);
   }
+
+  private addTodo(todo: string){
+    this.onAddTodo.next(this.todo.value);
+    this.todo.updateValue(null);
+  }
+
+  private deleteTodo(todo: string){
+    this.onDeleteTodo.next(this.todo.value);
+  }
 }
