@@ -1,0 +1,5 @@
+<h2>Wikipedia Search</h2>
+<input #term type="text" (keyup)="search(term.value)">
+<ul>
+    <li *ngFor="let item of searchResults">{{item}}</li>
+</ul>
