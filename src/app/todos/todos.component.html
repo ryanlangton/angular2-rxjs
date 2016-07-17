@@ -1,6 +1,6 @@
 <h2>Todos</h2>
 <input type="text" [ngFormControl]="todo">
-<button (click)="todos$.next(todo)">Todo A</button>
+<button (click)="addTodo(todo.value)">Add Todo</button>
 <ul>
-  <li *ngFor="let item in todos$ | async">{{ item }}</li>
+  <li *ngFor="let item of todos$ | async">{{ item }}</li>
 </ul>

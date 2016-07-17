@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs/Rx';
+import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   moduleId: module.id,
@@ -9,11 +9,17 @@ import { Subject } from 'rxjs/Rx';
   styleUrls: ['todos.component.css']
 })
 export class TodoComponent implements OnInit {
-  private todos$: Subject<string>;
-  private term: FormControl;
+  private todos$: Observable<string[]>;
+  private todo: FormControl;
 
   constructor() {}
 
   ngOnInit() {
+    this.todos$ = new Observable<string[]>();
+    this.todo = new FormControl('', Validators.required);
+  }
+
+  addTodo(todo: string){
+    
   }
 }
