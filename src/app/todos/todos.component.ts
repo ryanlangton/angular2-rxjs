@@ -6,13 +6,13 @@ import { TodoListComponent } from './../todo-list';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-todo',
+  selector: 'app-todos',
   templateUrl: 'todos.component.html',
   styleUrls: ['todos.component.css'],
   providers: [TodoStore],
   directives: [TodoListComponent]
 })
-export class TodoComponent implements OnInit {
+export class TodosComponent implements OnInit {
   private todos$: Observable<string[]>;
 
   constructor(private _todoStore: TodoStore) {}

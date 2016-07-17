@@ -85,8 +85,10 @@ const barrels: string[] = [
   'app/http-finish',
   'app/wikipedia-search-start',
   'app/wikipedia-search-finish',
-  'app/todos',
   'app/todo-list',
+  'app/todos',
+  'app/todos-ngrx',
+  'app/todos-firebase'
   /** @cli-barrel */
 ];
 

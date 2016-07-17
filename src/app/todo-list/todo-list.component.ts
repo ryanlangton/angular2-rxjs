@@ -21,11 +21,11 @@ export class TodoListComponent implements OnInit {
   }
 
   private addTodo(todo: string){
-    this.onAddTodo.next(this.todo.value);
+    this.onAddTodo.next(todo);
     this.todo.updateValue(null);
   }
 
   private deleteTodo(todo: string){
-    this.onDeleteTodo.next(this.todo.value);
+    this.onDeleteTodo.next(todo);
   }
 }
