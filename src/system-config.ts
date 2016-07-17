@@ -69,6 +69,7 @@ const barrels: string[] = [
   '@angular/common',
   '@angular/compiler',
   '@angular/http',
+  '@angular/forms',
   '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
@@ -78,10 +79,14 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
-  'app/shared',
-  'app/http-promise',
-  'app/http-rxjs',
+  'app/services',
   'app/dashboard',
+  'app/http-start',
+  'app/http-finish',
+  'app/wikipedia-search-start',
+  'app/wikipedia-search-finish',
+  'app/todos',
+  'app/todo-list',
   /** @cli-barrel */
 ];
 

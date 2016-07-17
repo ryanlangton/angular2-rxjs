@@ -7,7 +7,7 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list'
 import { MdIcon } from '@angular2-material/icon/icon'
 import { MdToolbar } from '@angular2-material/toolbar/toolbar'
 import { DashboardComponent } from './dashboard'
-import { GithubUserService } from './shared/github-user.service'
+import { GithubUserService, WikipediaService } from './services'
 
 @Component({
   moduleId: module.id,
@@ -24,7 +24,8 @@ import { GithubUserService } from './shared/github-user.service'
     MD_LIST_DIRECTIVES,
     DashboardComponent],
   providers: [
-    GithubUserService
+    GithubUserService,
+    WikipediaService
   ]
 })
 export class AppComponent {

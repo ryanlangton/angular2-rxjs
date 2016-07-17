@@ -1,8 +1,11 @@
 <md-sidenav-layout class="demo-root" fullscreen>
   <md-sidenav #start>
     <md-nav-list>
-      <a md-list-item [routerLink]="['http-promise']" (click)="start.close()">Http Promise</a>
-      <a md-list-item [routerLink]="['http-rxjs']" (click)="start.close()">Http RxJS</a>
+      <a md-list-item [routerLink]="['http-start']" (click)="start.close()">Http - Start</a>
+      <a md-list-item [routerLink]="['http-finish']" (click)="start.close()">Http - Finish</a>
+      <a md-list-item [routerLink]="['wikipedia-search-start']" (click)="start.close()">Wikipedia Search - Start</a>
+      <a md-list-item [routerLink]="['wikipedia-search-finish']" (click)="start.close()">Wikipedia Search - Finish</a>
+      <a md-list-item [routerLink]="['todos']" (click)="start.close()">Todos</a>
     </md-nav-list>
     <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>

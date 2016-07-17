@@ -1,0 +1,8 @@
+<h2>Todo List</h2>
+<input type="text" [ngFormControl]="todo">
+<button (click)="onAddTodo.next(todo.value)">Add Todo</button>
+<ul>
+  <li *ngFor="let item of todos">{{ item }}
+    <button (click)="onDeleteTodo.next(item)">x</button>
+  </li>
+</ul>
