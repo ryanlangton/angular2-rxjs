@@ -1,6 +1,6 @@
-<app-todo-list [todos]="todos"
+<app-todo-list [todos]="todos | async"
                (onAddTodo)="addTodo($event)"
                (onDeleteTodo)="deleteTodo($event)"></app-todo-list>
-<app-todo-list [todos]="todos"
+<app-todo-list [todos]="todos | async"
                (onAddTodo)="addTodo($event)"
                (onDeleteTodo)="deleteTodo($event)"></app-todo-list>

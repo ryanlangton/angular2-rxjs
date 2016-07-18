@@ -14,14 +14,13 @@ import { AppState, ADD_TODO, DELETE_TODO } from './../reducers';
   directives: [TodoListComponent]
 })
 export class TodosNgrxComponent implements OnInit {
-  private todos: string[];
+  private todos: Observable<string[]>;
 
   constructor(private store: Store<AppState>) {
-      this.store.select('todos').subscribe((res: string[]) => this.todos = res);
   }
 
   ngOnInit() {
-    
+    this.todos = this.store.select(state => state.todos);
   }
 
   addTodo(todo: string) {
