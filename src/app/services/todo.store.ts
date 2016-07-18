@@ -15,7 +15,7 @@ export class TodoStore {
       this.dataStore = { todos: []};
   }
   
-  get todos$() {
+  get todos$(): Observable<string[]> {
     return this._todos$.asObservable();
   }     
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import { TodoStore } from './todo.store';
+import { TodoStore } from './../services';
 import { TodoListComponent } from './../todo-list';
 
 @Component({
@@ -9,7 +9,6 @@ import { TodoListComponent } from './../todo-list';
   selector: 'app-todos',
   templateUrl: 'todos.component.html',
   styleUrls: ['todos.component.css'],
-  providers: [TodoStore],
   directives: [TodoListComponent]
 })
 export class TodosComponent implements OnInit {

@@ -7,7 +7,8 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  '@angular2-material': 'vendor/@angular2-material'
+  '@angular2-material': 'vendor/@angular2-material',
+  '@ngrx': 'vendor/@ngrx'
 };
 
 /** User packages configuration. */
@@ -57,6 +58,14 @@ const packages: any = {
     defaultExtension: 'js',
     main: 'toolbar.js'
   },
+  '@ngrx/core': {
+      main: 'index.js',
+      format: 'cjs'
+  },
+  '@ngrx/store': {
+      main: 'index.js',
+      format: 'cjs'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,6 +89,7 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/services',
+  'app/reducers',
   'app/dashboard',
   'app/http-start',
   'app/http-finish',
