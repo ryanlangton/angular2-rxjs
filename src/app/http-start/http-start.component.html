@@ -4,11 +4,11 @@
     <md-list dense>
       <h3 md-subheader>GitHub Users</h3>
       <md-list-item *ngFor="let user of users">
-        <img md-list-avatar [src]="user.AvatarUrl">
+        <img md-list-avatar [src]="user.avatar_url">
         <a md-line
            href="https://github.com/{{user.login}}" 
-           target="_new">{{user.Login}}</a>
-        <p md-line *ngIf="user.Repos.length > 0">{{ user.Repos.length > 30 ? '30+': user.Repos.length }} repos.</p>
+           target="_new">{{user.login}}</a>
+        <p md-line *ngIf="user.repos">{{ user.repos.length > 30 ? '30+': user.repos.length }} repos.</p>
       </md-list-item>
     </md-list>
   </div>

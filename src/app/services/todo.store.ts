@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http, Jsonp, URLSearchParams } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
 
 @Injectable()

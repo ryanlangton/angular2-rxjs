@@ -8,7 +8,9 @@
 /** Map relative paths to URLs. */
 const map: any = {
   '@angular2-material': 'vendor/@angular2-material',
-  '@ngrx': 'vendor/@ngrx'
+  '@ngrx': 'vendor/@ngrx',
+  'firebase': 'vendor/firebase/firebase.js',
+  'angularfire2': 'vendor/angularfire2'
 };
 
 /** User packages configuration. */
@@ -65,6 +67,10 @@ const packages: any = {
   '@ngrx/store': {
       main: 'index.js',
       format: 'cjs'
+  },
+  'angularfire2': {
+      defaultExtension: 'js',
+      main: 'angularfire2.js'
   }
 };
 

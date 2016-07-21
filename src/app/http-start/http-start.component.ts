@@ -21,8 +21,6 @@ export class HttpStartComponent implements OnInit {
 
   ngOnInit() {
       this._githubUserService.getUsers()
-            .toArray()
-            .do(x => console.log(x))
             .subscribe((users) => this.users = users);
   }
 }

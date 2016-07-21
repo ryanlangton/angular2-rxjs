@@ -20,7 +20,6 @@ export class HttpFinishComponent implements OnInit {
   constructor(private _githubUserService: GithubUserService) {}
 
   ngOnInit() {
-      this.users = this._githubUserService.getUsersWithRepos(10)
-            .toArray();
+      this.users = this._githubUserService.getUsersWithRepos(10);
   }
 }

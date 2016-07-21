@@ -7,7 +7,7 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list'
 import { MdIcon } from '@angular2-material/icon/icon'
 import { MdToolbar } from '@angular2-material/toolbar/toolbar'
 import { DashboardComponent } from './dashboard'
-import { GithubUserService, WikipediaService, TodoStore } from './services'
+import { GithubUserService, WikipediaService, TodoStore, TodoFirebase } from './services'
 
 @Component({
   moduleId: module.id,
@@ -26,7 +26,8 @@ import { GithubUserService, WikipediaService, TodoStore } from './services'
   providers: [
     GithubUserService,
     WikipediaService,
-    TodoStore
+    TodoStore,
+    TodoFirebase
   ]
 })
 export class AppComponent {

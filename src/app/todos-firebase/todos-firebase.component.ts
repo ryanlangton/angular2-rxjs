@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import { TodoStore } from './../services';
+import { TodoFirebase } from './../services';
 import { TodoListComponent } from './../todo-list';
 
 @Component({
@@ -14,17 +14,17 @@ import { TodoListComponent } from './../todo-list';
 export class TodosFirebaseComponent implements OnInit {
   private todos$: Observable<string[]>;
 
-  constructor(private _todoStore: TodoStore) {}
+  constructor(private _todoFirebase: TodoFirebase) {}
 
   ngOnInit() {
-    this.todos$ = this._todoStore.todos$;
+    this.todos$ = this._todoFirebase.todos$;
   }
 
   addTodo(todo: string){
-    this._todoStore.add(todo);
+    this._todoFirebase.add(todo);
   }
 
   deleteTodo(todo: string){
-    this._todoStore.remove(todo);
+    this._todoFirebase.remove(todo);
   }
 }
