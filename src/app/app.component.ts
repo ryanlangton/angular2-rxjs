@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { ROUTER_DIRECTIVES } from '@angular/router'
+import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES } from '@angular/forms'
 import { Dir } from '@angular2-material/core/rtl/dir'
 import { MdButton } from '@angular2-material/button/button'
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav'
@@ -20,9 +21,9 @@ import { DashboardComponent } from './dashboard'
     MdIcon,
     MdToolbar,
     MD_SIDENAV_DIRECTIVES,
-    MD_LIST_DIRECTIVES,
-    DashboardComponent],
-  providers: []
+    MD_LIST_DIRECTIVES],
+  providers: [
+  ]
 })
 export class AppComponent {
   title = 'Reactive programming with Angular2 and RxJS';

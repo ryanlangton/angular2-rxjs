@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, REACTIVE_FORM_DIRECTIVES, Validators } from '@angular/forms';
 import { FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
   moduleId: module.id,
   selector: 'app-todo-list-firebase',
   templateUrl: 'todo-list-firebase.component.html',
-  styleUrls: ['todo-list-firebase.component.css']
+  styleUrls: ['todo-list-firebase.component.css'],
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class TodoListFirebaseComponent implements OnInit {
   @Input() todos: FirebaseObjectObservable<string>;

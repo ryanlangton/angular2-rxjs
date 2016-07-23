@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, REACTIVE_FORM_DIRECTIVES, Validators } from '@angular/forms';
 
 @Component({
   moduleId: module.id,
   selector: 'app-todo-list',
   templateUrl: 'todo-list.component.html',
-  styleUrls: ['todo-list.component.css']
+  styleUrls: ['todo-list.component.css'],
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class TodoListComponent implements OnInit {
   @Input() todos: string[];

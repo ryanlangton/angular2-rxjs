@@ -1,6 +1,6 @@
 <h2>Todo List</h2>
 <form>
-  <input type="text" [ngFormControl]="todo">
+  <input type="text" [formControl]="todo">
   <button (click)="addTodo(todo.value)">Add Todo</button>
   <ul>
     <li *ngFor="let todo of todos">{{ todo.$value }}

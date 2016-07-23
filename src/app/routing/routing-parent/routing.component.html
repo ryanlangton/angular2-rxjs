@@ -1,0 +1,8 @@
+<h2>Routing parent</h2>
+<p>Input a child ID to navigate to</p>
+<form>
+    <label>Child ID</label>
+    <input type="text" [formControl]="childId">
+    <button (click)="goToChild()">Go to Child</button>
+</form>
+<router-outlet></router-outlet>
