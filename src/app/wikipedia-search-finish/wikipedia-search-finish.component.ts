@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { Jsonp, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
@@ -7,7 +7,8 @@ import { Observable } from 'rxjs/Rx';
   moduleId: module.id,
   selector: 'app-wikipedia-search-finish',
   templateUrl: 'wikipedia-search-finish.component.html',
-  styleUrls: ['wikipedia-search-finish.component.css']
+  styleUrls: ['wikipedia-search-finish.component.css'],
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class WikipediaSearchFinishComponent implements OnInit {
   private searchResults: Observable<string[]>;

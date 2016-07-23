@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { Jsonp, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs';
 
