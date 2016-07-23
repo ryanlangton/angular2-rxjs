@@ -1,8 +1,10 @@
 <h2>Todo List</h2>
-<input type="text" [ngFormControl]="todo">
-<button (click)="addTodo(todo.value)">Add Todo</button>
-<ul>
-  <li *ngFor="let todo of todos">{{ todo.$value }}
-    <button (click)="deleteTodo(todo.$key)">x</button>
-  </li>
-</ul>
+<form>
+  <input type="text" [ngFormControl]="todo">
+  <button (click)="addTodo(todo.value)">Add Todo</button>
+  <ul>
+    <li *ngFor="let todo of todos">{{ todo.$value }}
+      <button (click)="deleteTodo(todo.$key)">x</button>
+    </li>
+  </ul>
+</form>

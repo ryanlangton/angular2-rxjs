@@ -1,10 +1,12 @@
+/// <reference path="./../../../typings/globals/lodash/index.d.ts" />
+
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { MdButton } from '@angular2-material/button/button';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
 import { MdIcon } from '@angular2-material/icon/icon';
 import { Observable } from 'rxjs/Rx';
-// import {_} from 'lodash';
+import * as _ from 'lodash';
 
 @Component({
   moduleId: module.id,
@@ -21,8 +23,8 @@ export class HttpFinishComponent implements OnInit {
 
   ngOnInit() {
     this.users = this._http.get(this._githubUsersUrl) 
-                          //  .map(users => _.filter(users, 
-                           .map(res => res.json());
+                           .map(res => res.json())
+                           .map(users => _.filter(users, (user: User) => user.login.startsWith('m'))); 
   }
 }
 class User {
