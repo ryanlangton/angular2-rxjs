@@ -8,6 +8,7 @@ import { WikipediaSearchFinishComponent } from './wikipedia-search-finish';
 import { TodosCustomPageComponent } from './todos-custom-page';
 import { TodosFirebasePageComponent } from './todos-firebase-page';
 import { TodosNgrxPageComponent } from './todos-ngrx-page';
+import { routingDemoRoutes } from './routing/routing.routes';
 
 const routes: RouterConfig = [
   { path: '',  component: DashboardComponent },
@@ -17,7 +18,8 @@ const routes: RouterConfig = [
   { path: 'wikipedia-search-finish', component: WikipediaSearchFinishComponent },
   { path: 'todos-custom', component: TodosCustomPageComponent },
   { path: 'todos-ngrx', component: TodosNgrxPageComponent },
-  { path: 'todos-firebase', component: TodosFirebasePageComponent }
+  { path: 'todos-firebase', component: TodosFirebasePageComponent },
+  ...routingDemoRoutes
   ];
 
 export const APP_ROUTER_PROVIDERS = [
