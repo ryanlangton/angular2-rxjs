@@ -8,14 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['routing-child.component.css']
 })
 export class RoutingChildComponent implements OnInit {
-  private _childId: number;
+  private childId: number;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    // console.log('ngOnInit() called for child component');
-    // this.route.params
-    //           .do(x => console.log("Route changed to child ID: " + x['id']))
-    //           .subscribe(x => this._childId = x['id']);
+    console.log('ngOnInit() called for child component');
+    this.route.params
+              .do(x => console.log("Route changed to child ID: " + x['id']))
+              .subscribe(x => this.childId = x['id']);
   }
 }

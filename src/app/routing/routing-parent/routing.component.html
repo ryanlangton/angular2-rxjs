@@ -2,7 +2,7 @@
 <p>Input a child ID to navigate to</p>
 <form>
     <label>Child ID</label>
-    <input type="text" formControlName="childId">
+    <input type="text" [formControl]="childId">
     <button (click)="goToChild()">Go to Child</button>
-    <router-outlet></router-outlet>
 </form>
+<router-outlet></router-outlet>
