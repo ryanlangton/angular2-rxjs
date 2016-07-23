@@ -1,14 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-todo-list',
-  templateUrl: 'todo-list.component.html',
-  styleUrls: ['todo-list.component.css']
+  selector: 'app-todo-list-firebase',
+  templateUrl: 'todo-list-firebase.component.html',
+  styleUrls: ['todo-list-firebase.component.css']
 })
-export class TodoListComponent implements OnInit {
-  @Input() todos: string[];
+export class TodoListFirebaseComponent implements OnInit {
+  @Input() todos: FirebaseObjectObservable<string>;
   @Output() onDeleteTodo: EventEmitter<string> = new EventEmitter<string>();
   @Output() onAddTodo: EventEmitter<string> = new EventEmitter<string>();
 
@@ -25,7 +26,7 @@ export class TodoListComponent implements OnInit {
     this.todo.updateValue(null);
   }
 
-  private deleteTodo(todo: string){
-    this.onDeleteTodo.next(todo);
+  private deleteTodo(key: string){
+    this.onDeleteTodo.next(key);
   }
 }

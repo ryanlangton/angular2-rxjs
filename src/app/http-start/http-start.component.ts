@@ -3,9 +3,7 @@ import { Http } from '@angular/http';
 import { MdButton } from '@angular2-material/button/button';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
 import { MdIcon } from '@angular2-material/icon/icon';
-import { GithubUserService, User } from './../services';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/toArray';
 
 @Component({
   moduleId: module.id,
@@ -16,13 +14,17 @@ import 'rxjs/add/operator/toArray';
 })
 export class HttpStartComponent implements OnInit {
   private users: User[];
+  private _githubUsersUrl = 'https://api.github.com/users';
 
-  constructor(private _githubUserService: GithubUserService) {}
+  constructor(private _http: Http) {}
 
   ngOnInit() {
-      this._githubUserService.getUsers()
-            .toArray()
-            .do(x => console.log(x))
-            .subscribe((users) => this.users = users);
   }
+}
+
+export class User {
+  public login: string;
+  public repos_url: string;
+  public avatar_url: string;
+  public repos: any[];
 }

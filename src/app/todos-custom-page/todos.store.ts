@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Jsonp, URLSearchParams } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
 
 @Injectable()
-export class TodoStore {     
+export class TodosStore {     
 
   private dataStore: {
     todos: string[]
@@ -15,7 +14,7 @@ export class TodoStore {
       this.dataStore = { todos: []};
   }
   
-  get todos$() {
+  get todos$(): Observable<string[]> {
     return this._todos$.asObservable();
   }     
 

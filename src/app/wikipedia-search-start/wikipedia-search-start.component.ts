@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Jsonp, URLSearchParams } from '@angular/http';
-import { WikipediaService } from './../services';
+import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -12,14 +12,24 @@ export class WikipediaSearchStartComponent implements OnInit {
   private searchResults: string[];
   private term: string;
 
-  constructor(private _wikipediaService: WikipediaService) {}
+  constructor(private _jsonp: Jsonp) {}
 
   ngOnInit() {
   }
 
   search(term: string){
-      this._wikipediaService.search(term)
+      this.searchWiki(term)
           .toPromise()
           .then((res) => this.searchResults = res);
+  }
+
+  // TODO: this would go in a service
+  private searchWiki(term: string): Observable<string[]> {
+    var params = new URLSearchParams();
+    params.set('action', 'opensearch');
+    params.set('search', term);
+    params.set('format', 'json');
+    return this._jsonp.get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', { search: params })
+                      .map((res) => res.json()[1]);
   }
 }
