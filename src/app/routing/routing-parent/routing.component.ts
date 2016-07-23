@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['routing.component.css']
 })
 export class RoutingComponent implements OnInit {
-  private _childId: FormControl;
+  private childId: FormControl;
 
   constructor(private _router: Router) {}
 
   ngOnInit() {
     console.log('ngOnInit() called for parent component');
-    this._childId = new FormControl();
+    this.childId = new FormControl();
   }
 
   private goToChild(){
-    this._router.navigate(['/routing', this._childId.value]);
+    this._router.navigate(['/routing', this.childId.value]);
   }
 }

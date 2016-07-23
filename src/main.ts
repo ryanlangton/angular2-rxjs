@@ -1,5 +1,6 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
+import { disableDeprecatedForms, provideForms } from '@angular/forms'; 
 import { AppComponent, environment } from './app/';
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
 import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
@@ -17,6 +18,8 @@ bootstrap(AppComponent, [
   MdIconRegistry,
   HTTP_PROVIDERS,
   JSONP_PROVIDERS,
+  disableDeprecatedForms(),
+  provideForms(),
   provideStore({ todos: todosReducer }),
   FIREBASE_PROVIDERS,
   defaultFirebase({

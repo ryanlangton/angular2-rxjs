@@ -18,8 +18,7 @@ const routes: RouterConfig = [
   { path: 'wikipedia-search-finish', component: WikipediaSearchFinishComponent },
   { path: 'todos-custom', component: TodosCustomPageComponent },
   { path: 'todos-ngrx', component: TodosNgrxPageComponent },
-  { path: 'todos-firebase', component: TodosFirebasePageComponent },
-  ...routingDemoRoutes
+  { path: 'todos-firebase', component: TodosFirebasePageComponent }
   ];
 
 export const APP_ROUTER_PROVIDERS = [

@@ -1,6 +1,8 @@
 <h2>Routing parent</h2>
 <p>Input a child ID to navigate to</p>
-<label>Child ID</label>
-<input type="text" [ngFormControl]="childId">
-<button (click)="goToChild()">Go to Child</button>
-<router-outlet></router-outlet>
+<form>
+    <label>Child ID</label>
+    <input type="text" formControlName="childId">
+    <button (click)="goToChild()">Go to Child</button>
+    <router-outlet></router-outlet>
+</form>
