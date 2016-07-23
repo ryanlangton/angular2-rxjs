@@ -1,9 +1,12 @@
+/// <reference path="./../../../typings/globals/lodash/index.d.ts" />
+
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { MdButton } from '@angular2-material/button/button';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
 import { MdIcon } from '@angular2-material/icon/icon';
 import { Observable } from 'rxjs/Rx';
+import * as _ from 'lodash';
 
 @Component({
   moduleId: module.id,
