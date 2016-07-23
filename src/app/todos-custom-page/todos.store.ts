@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
 
 @Injectable()
-export class TodoStore {     
+export class TodosStore {     
 
   private dataStore: {
     todos: string[]

@@ -7,7 +7,6 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list'
 import { MdIcon } from '@angular2-material/icon/icon'
 import { MdToolbar } from '@angular2-material/toolbar/toolbar'
 import { DashboardComponent } from './dashboard'
-import { GithubUserService, WikipediaService, TodoStore, TodoFirebase } from './services'
 
 @Component({
   moduleId: module.id,
@@ -23,12 +22,7 @@ import { GithubUserService, WikipediaService, TodoStore, TodoFirebase } from './
     MD_SIDENAV_DIRECTIVES,
     MD_LIST_DIRECTIVES,
     DashboardComponent],
-  providers: [
-    GithubUserService,
-    WikipediaService,
-    TodoStore,
-    TodoFirebase
-  ]
+  providers: []
 })
 export class AppComponent {
   title = 'Reactive programming with Angular2 and RxJS';

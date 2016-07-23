@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
-import { TodoStore } from './../services';
 import { TodoListComponent } from './../todo-list';
 import { Store } from '@ngrx/store';
 import { AppState, ADD_TODO, DELETE_TODO } from './../reducers';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-todos-ngrx',
-  templateUrl: 'todos-ngrx.component.html',
-  styleUrls: ['todos-ngrx.component.css'],
+  selector: 'app-todos-ngrx-page',
+  templateUrl: 'todos-ngrx-page.component.html',
+  styleUrls: ['todos-ngrx-page.component.css'],
   directives: [TodoListComponent]
 })
-export class TodosNgrxComponent implements OnInit {
+export class TodosNgrxPageComponent implements OnInit {
   private todos$: Observable<string[]>;
 
   constructor(private store: Store<AppState>) {

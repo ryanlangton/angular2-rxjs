@@ -3,9 +3,8 @@ import { Http } from '@angular/http';
 import { MdButton } from '@angular2-material/button/button';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
 import { MdIcon } from '@angular2-material/icon/icon';
-import { GithubUserService, User } from './../services';
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/toArray';
+// import {_} from 'lodash';
 
 @Component({
   moduleId: module.id,
@@ -15,11 +14,20 @@ import 'rxjs/add/operator/toArray';
   directives: [MD_LIST_DIRECTIVES, MdButton, MdIcon]
 })
 export class HttpFinishComponent implements OnInit {
+  private _githubUsersUrl = 'https://api.github.com/users';
   private users: Observable<User[]>
 
-  constructor(private _githubUserService: GithubUserService) {}
+  constructor(private _http: Http) {}
 
   ngOnInit() {
-      this.users = this._githubUserService.getUsersWithRepos(10);
+    this.users = this._http.get(this._githubUsersUrl) 
+                          //  .map(users => _.filter(users, 
+                           .map(res => res.json());
   }
+}
+class User {
+  public login: string;
+  public repos_url: string;
+  public avatar_url: string;
+  public repos: any[];
 }

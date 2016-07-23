@@ -5,9 +5,9 @@ import { HttpStartComponent } from './http-start';
 import { HttpFinishComponent } from './http-finish';
 import { WikipediaSearchStartComponent } from './wikipedia-search-start';
 import { WikipediaSearchFinishComponent } from './wikipedia-search-finish';
-import { TodosComponent } from './todos';
-import { TodosFirebaseComponent } from './todos-firebase';
-import { TodosNgrxComponent } from './todos-ngrx';
+import { TodosCustomPageComponent } from './todos-custom-page';
+import { TodosFirebasePageComponent } from './todos-firebase-page';
+import { TodosNgrxPageComponent } from './todos-ngrx-page';
 
 const routes: RouterConfig = [
   { path: '',  component: DashboardComponent },
@@ -15,9 +15,9 @@ const routes: RouterConfig = [
   { path: 'http-finish', component: HttpFinishComponent },
   { path: 'wikipedia-search-start', component: WikipediaSearchStartComponent },
   { path: 'wikipedia-search-finish', component: WikipediaSearchFinishComponent },
-  { path: 'todos', component: TodosComponent },
-  { path: 'todos-ngrx', component: TodosNgrxComponent },
-  { path: 'todos-firebase', component: TodosFirebaseComponent }
+  { path: 'todos-custom', component: TodosCustomPageComponent },
+  { path: 'todos-ngrx', component: TodosNgrxPageComponent },
+  { path: 'todos-firebase', component: TodosFirebasePageComponent }
   ];
 
 export const APP_ROUTER_PROVIDERS = [

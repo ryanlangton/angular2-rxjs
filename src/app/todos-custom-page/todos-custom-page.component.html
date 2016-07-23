@@ -1,0 +1,3 @@
+<app-todo-list [todos]="todos$ | async"
+               (onAddTodo)="addTodo($event)"
+               (onDeleteTodo)="deleteTodo($event)"></app-todo-list>
