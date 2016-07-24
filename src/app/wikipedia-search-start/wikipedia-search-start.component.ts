@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   moduleId: module.id,
   selector: 'app-wikipedia-search-start',
   templateUrl: 'wikipedia-search-start.component.html',
-  styleUrls: ['wikipedia-search-start.component.css']
+  styleUrls: ['wikipedia-search-start.component.css'],
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class WikipediaSearchStartComponent implements OnInit {
   private searchResults: string[];
