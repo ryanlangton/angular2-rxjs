@@ -1,6 +1,7 @@
 # Angular2Rxjs
 
 This project is set up to demonstrate how [Angular 2](http://angular.io) can use [RxJS](http://reactivex.io) for a [Functional Reactive Programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) architecture.
+Here are the [slides](https://docs.google.com/presentation/d/1IqAMShDwUIoU2vtue-7pF_zIGGtaQR1VFZIrs3UoW-I/edit?usp=sharing) for the talk that accompanies this project.
 
 ## Demos
 
