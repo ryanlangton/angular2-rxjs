@@ -1,4 +1,4 @@
-/// <reference path="./../../../typings/globals/lodash/index.d.ts" />
+/// <reference path="./../../../typings/browser/definitions/lodash/index.d.ts" />
 
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';

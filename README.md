@@ -1,5 +1,18 @@
 # Angular2Rxjs
 
+This project is set up to demonstrate how [Angular 2](http://angular.io) can use [RxJS](http://reactivex.io) for a [Functional Reactive Programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) architecture.
+
+## Demos
+
+* Http - Http.get demo.  Get's a list of demos from github.
+* Wikipedia Search - Demo multiple observables interacting.  One from the form input (search) and one for the search request.
+* Todo Custom - Demo simple todo component, passing events up through a child component (TodoList) and using a custom store.  
+* Todo NgRx - Demo Reactive Extensions ngrx/store (Redux for Angular 2).
+* Todo Firebase - Demo Firebase back end.
+* Routing - Demo child component routing and how ActiveRoute Observable is used.
+
+## Angular CLI
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
 
 ## Development server
