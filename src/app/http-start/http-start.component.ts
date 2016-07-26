@@ -17,7 +17,7 @@ import * as _ from 'lodash';
 })
 export class HttpStartComponent implements OnInit {
   private users: User[];
-  private _githubUsersUrl = 'https://api.github.com/users';
+  private githubUsersUrl = 'https://api.github.com/users';
 
   constructor(private _http: Http) {}
 

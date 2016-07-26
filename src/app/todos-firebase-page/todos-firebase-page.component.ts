@@ -14,22 +14,20 @@ import * as _ from 'lodash';
 })
 export class TodosFirebasePageComponent implements OnInit {
   private todos$: Observable<Todo[]>;
-  private firebaseTodos: FirebaseListObservable<string[]>
 
   constructor(private _af: AngularFire) {}
 
   ngOnInit() {
-    this.firebaseTodos = this._af.database.list('/todos');
-    this.todos$ = this.firebaseTodos
+    this.todos$ = this._af.database.list('/todos')
         .map((x: any[]) => _.map(x, (y) => { return {key: y.$key, value: y.$value }}));
   }
 
   addTodo(todo: string){
-    this.firebaseTodos.push(todo);
+    this._af.database.list('/todos').push(todo);
   }
 
   deleteTodo(key: string){
-    this.firebaseTodos.remove(key);
+    this._af.database.list('/todos').remove(key);
   }
 }
 
