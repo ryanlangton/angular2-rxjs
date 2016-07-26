@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { Jsonp, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -21,7 +21,7 @@ export class WikipediaSearchFinishComponent implements OnInit {
     this.searchResults = this.term.valueChanges
              .debounceTime(400)        
              .distinctUntilChanged()   
-             .flatMap(term => this.searchWiki(term));
+             .switchMap(term => this.searchWiki(term));
   }
 
   // TODO: this would go in a service
