@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { TodoListFirebaseComponent } from './../todo-list-firebase';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import * as _ from 'lodash';
 
 @Component({
   moduleId: module.id,
@@ -12,19 +13,27 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   directives: [TodoListFirebaseComponent]
 })
 export class TodosFirebasePageComponent implements OnInit {
-  private todos$: FirebaseListObservable<any[]>;
+  private todos$: Observable<Todo[]>;
+  private firebaseTodos: FirebaseListObservable<string[]>
 
   constructor(private _af: AngularFire) {}
 
   ngOnInit() {
-    this.todos$ = this._af.database.list('/todos');
+    this.firebaseTodos = this._af.database.list('/todos');
+    this.todos$ = this.firebaseTodos
+        .map((x: any[]) => _.map(x, (y) => { return {key: y.$key, value: y.$value }}));
   }
 
   addTodo(todo: string){
-    this.todos$.push(todo);
+    this.firebaseTodos.push(todo);
   }
 
   deleteTodo(key: string){
-    this.todos$.remove(key);
+    this.firebaseTodos.remove(key);
   }
+}
+
+export class Todo {
+  key: string;
+  value: string;
 }

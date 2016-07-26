@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, REACTIVE_FORM_DIRECTIVES, Validators } from '@angular/forms';
 import { FirebaseObjectObservable } from 'angularfire2';
+import { Todo } from './../todos-firebase-page';
 
 @Component({
   moduleId: module.id,
@@ -10,21 +11,21 @@ import { FirebaseObjectObservable } from 'angularfire2';
   directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class TodoListFirebaseComponent implements OnInit {
-  @Input() todos: FirebaseObjectObservable<string>;
+  @Input() todos: Todo[];
   @Output() onDeleteTodo: EventEmitter<string> = new EventEmitter<string>();
   @Output() onAddTodo: EventEmitter<string> = new EventEmitter<string>();
 
-  private todo: FormControl;
+  private todoControl: FormControl;
 
   constructor() {}
 
   ngOnInit() {
-    this.todo = new FormControl('', Validators.required);
+    this.todoControl = new FormControl('', Validators.required);
   }
 
   private addTodo(todo: string){
     this.onAddTodo.next(todo);
-    this.todo.updateValue(null);
+    this.todoControl.updateValue(null);
   }
 
   private deleteTodo(key: string){
